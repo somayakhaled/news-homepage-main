@@ -1,0 +1,256 @@
+@font-face {
+  font-family: "specimen";
+  src: url(assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100px;
+}
+
+body {
+  background-color: hsl(36, 100%, 99%);
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-family: "specimen";
+  color: hsl(236, 13%, 42%);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: "navBar navBar navBar" "image image sideSection" "h1 paragraph sideSection" "one two three";
+  gap: 1.8rem;
+  width: 85%;
+  height: 100%;
+}
+.container .navBar {
+  grid-area: navBar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.container .navBar img {
+  width: 4rem;
+}
+.container .navBar ul {
+  list-style-type: none;
+}
+.container .navBar ul li {
+  display: inline;
+  margin-left: 2rem;
+}
+.container .navBar ul li a {
+  text-decoration: none;
+  color: hsl(236, 13%, 42%);
+}
+.container .navBar ul li a:hover {
+  cursor: pointer;
+  color: hsl(5, 85%, 63%);
+}
+.container .navBar .menu {
+  display: none;
+}
+.container .navBar .close {
+  display: none;
+}
+.container .image {
+  grid-area: image;
+}
+.container .image .desktop {
+  width: 100%;
+}
+.container .image .mobile {
+  display: none;
+}
+.container h1 {
+  grid-area: h1;
+  font-weight: 700;
+  color: hsl(240, 100%, 5%);
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+}
+.container .text {
+  grid-area: paragraph;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5rem;
+  gap: 2rem;
+}
+.container .text p {
+  font-size: 15px;
+}
+.container .text button {
+  width: 55%;
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(240, 100%, 5%);
+  border: none;
+  padding: 0.8rem 1rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  transition: 0.2s;
+}
+.container .text button:hover {
+  cursor: pointer;
+  color: hsl(36, 100%, 99%);
+  background-color: hsl(240, 100%, 5%);
+}
+.container .new {
+  grid-area: sideSection;
+  background-color: hsl(240, 100%, 5%);
+  color: hsl(36, 100%, 99%);
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+.container .new label {
+  color: hsl(35, 77%, 62%);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.container .new div {
+  line-height: 1.7rem;
+}
+.container .new div p {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: hsl(36, 100%, 99%);
+}
+.container .new div p:hover {
+  color: hsl(35, 77%, 62%);
+}
+.container .new .line {
+  width: 100%;
+  height: 0.5px;
+  background-color: hsl(236, 13%, 42%);
+  padding: 0.5px;
+}
+.container .one {
+  grid-area: one;
+}
+.container .two {
+  grid-area: two;
+}
+.container .three {
+  grid-area: three;
+}
+.container .one, .container .two, .container .three {
+  display: flex;
+  gap: 1rem;
+}
+.container .one div, .container .two div, .container .three div {
+  display: flex;
+  flex-direction: column;
+}
+.container .one div span, .container .two div span, .container .three div span {
+  color: hsl(5, 85%, 63%);
+  font-size: 2rem;
+  font-weight: 700;
+}
+.container .one div h3, .container .two div h3, .container .three div h3 {
+  color: hsl(240, 100%, 5%);
+}
+.container .one div h3:hover, .container .two div h3:hover, .container .three div h3:hover {
+  cursor: pointer;
+  color: hsl(5, 85%, 63%);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  .container .text button {
+    width: 60%;
+  }
+  .container .new {
+    overflow: scroll;
+  }
+  .container .one div h3, .container .two div h3, .container .three div h3 {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .container .text button {
+    width: 70%;
+  }
+  .container .one, .container .two, .container .three {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 425px) {
+  body {
+    height: 100%;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4rem 21.5rem 10.5rem 9.5rem 29.5rem repeat(3, 1fr);
+    grid-template-areas: "navBar" "image" "h1" "paragraph" "sideSection" "one" "two" "three";
+  }
+  .container .navBar ul {
+    display: none;
+  }
+  .container .navBar ul.open {
+    display: block;
+    background-color: hsl(36, 100%, 99%);
+    position: fixed;
+    width: 48%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    font-size: 1.1rem;
+  }
+  .container .navBar ul.open .close {
+    display: block;
+    margin-left: 165px;
+    margin-bottom: 50px;
+    width: 40px;
+  }
+  .container .navBar ul.open li {
+    margin: 0;
+  }
+  .container .navBar ul.open li a {
+    color: hsl(240, 100%, 5%);
+  }
+  .container .navBar .menu {
+    display: block;
+  }
+  .container .image .desktop {
+    display: none;
+  }
+  .container .image .mobile {
+    display: block;
+    width: 100%;
+  }
+  .container .text button {
+    width: 55%;
+  }
+  .container .new {
+    height: 25.5rem;
+    margin: 1rem 0;
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    grid-template-rows: 4rem 19rem 10.5rem 11rem 31rem repeat(3, 1fr);
+  }
+  .container .new {
+    height: 27rem;
+  }
+}/*# sourceMappingURL=style.css.map */
